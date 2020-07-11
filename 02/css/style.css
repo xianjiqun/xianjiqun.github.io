@@ -1,0 +1,156 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 150px;
+  perspective: 1500px;
+}
+.stage {
+  width: 300px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  transition: all 0.3s;
+  transform-origin: 50% 50% 150px;
+  perspective: 1500px;
+}
+.stage::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+.stage .mask {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: url("../img/600x600.jpg") center;
+  background-size: cover;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.stage .mask h3 {
+  font-size: 36px;
+  color: white;
+  font-weight: bold;
+  transform: translateZ(1px);
+}
+.stage .mask p {
+  font-size: 24px;
+  color: white;
+  margin: 30px 0;
+  transform: translateZ(1px);
+}
+.stage .mask .chart {
+  transform: translateZ(1px);
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+.stage .mask .chart span {
+  width: 30px;
+  height: 30px;
+  margin: 15px;
+  position: relative;
+  transform: rotate(-45deg);
+  transform-style: preserve-3d;
+}
+.stage .mask .chart span i.top {
+  content: "1000";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #d4d4d4, lightblue);
+  transform-origin: left bottom;
+  color: transparent;
+  text-align: right;
+  background: white;
+  transition: all 1s;
+  color: black;
+  text-align: center;
+  line-height: 30px;
+}
+.stage .mask .chart span i.left {
+  content: "1000";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #d4d4d4, lightblue);
+  transform-origin: left bottom;
+  transition: all 1s;
+  color: transparent;
+  text-align: right;
+  width: 0;
+  transform: rotateY(-90deg);
+  padding-right: 20px;
+}
+.stage .mask .chart span i.front {
+  content: "1000";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #d4d4d4, lightblue);
+  transform-origin: left bottom;
+  transition: all 1s;
+  color: transparent;
+  text-align: right;
+  width: 0;
+  transform: rotateY(-90deg) rotateX(90deg);
+}
+.stage:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: #414141;
+  transform: translateZ(-20px);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
+}
+.stage.active {
+  transform: rotateX(60deg);
+}
+.stage.active .mask h3 {
+  transform: translateZ(20px);
+}
+.stage.active .mask p {
+  transform: translateZ(20px);
+}
+.stage.active .mask .chart span i.top {
+  transform: translateZ(100px);
+}
+.stage.active .mask .chart span i.left,
+.stage.active .mask .chart span i.front {
+  width: 100px;
+  color: black;
+}
+/*# sourceMappingURL=./style.css.map */
