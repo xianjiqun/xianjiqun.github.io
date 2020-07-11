@@ -80,7 +80,12 @@ git push -u origin master
 # 从远程仓库初始化 克隆
 git clone
 
-
+查看远程仓库名
+git remote
+修改关联远程仓库地址
+git remote set-url origin http://192.168.100.235:9797/john/git_test.git
+删除远程仓库
+git remote rm origin
 
 gitpage
 
