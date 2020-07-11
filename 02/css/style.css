@@ -1,35 +1,43 @@
+html,
 body {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 150px;
-  perspective: 1500px;
+  height: 100%;
+  font-family: "宋体";
+}
+body {
+  transform-style: preserve-3d;
 }
 .stage {
-  width: 300px;
-  height: 500px;
-  margin: 0 auto;
-  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(45deg, #009999c0, #cc3366a9), linear-gradient(-45deg, #66336685, #cc99cc7c);
   transform-style: preserve-3d;
-  border-radius: 15px;
-  transition: all 0.3s;
-  transform-origin: 50% 50% 150px;
+  transition: all 0.5s ease;
   perspective: 1500px;
 }
-.stage::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
+.stage .w {
+  width: 30%;
+  max-width: 360px;
+  transition: inherit;
 }
-.stage .mask {
+.stage .card {
+  width: 100%;
+  padding-bottom: 140%;
+  max-height: 480px;
+  background: url("../img/600x600.jpg") red no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  border-radius: 15px;
+  position: relative;
+  transform-origin: 50% 50% 100px;
+  transition: inherit;
+  transform: translateZ(200px);
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+.stage .card .mask {
   content: "";
   display: block;
   position: absolute;
@@ -38,92 +46,91 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background: url("../img/600x600.jpg") center;
-  background-size: cover;
-  z-index: 0;
+  transition: inherit;
+}
+.stage .card::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: inherit;
+  background: rgba(42, 33, 22, 0.397);
+  z-index: -1;
+}
+.stage .card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: inherit;
+  background: rgba(0, 0, 0, 0.842);
+  transform: translateZ(-15px);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.733);
+}
+.stage .card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
+  align-items: center;
+  transition: inherit;
 }
-.stage .mask h3 {
+.stage .card .content h1,
+.stage .card .content h3 {
+  transition: all 1s;
+}
+.stage .card .content h1 {
   font-size: 36px;
-  color: white;
-  font-weight: bold;
-  transform: translateZ(1px);
+  transform: translateZ(50px);
 }
-.stage .mask p {
-  font-size: 24px;
-  color: white;
-  margin: 30px 0;
-  transform: translateZ(1px);
+.stage .card .content h3 {
+  line-height: 4em;
+  transform: translateZ(40px);
 }
-.stage .mask .chart {
-  transform: translateZ(1px);
+.stage .card .content ul.chart {
   display: flex;
   justify-content: center;
-  transform-style: preserve-3d;
+  transition: inherit;
 }
-.stage .mask .chart span {
-  width: 30px;
-  height: 30px;
-  margin: 15px;
-  position: relative;
-  transform: rotate(-45deg);
-  transform-style: preserve-3d;
-}
-.stage .mask .chart span i.top {
-  content: "1000";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to left, #d4d4d4, lightblue);
-  transform-origin: left bottom;
-  color: transparent;
-  text-align: right;
+.stage .card .content ul.chart li {
+  width: 20px;
+  height: 20px;
   background: white;
-  transition: all 1s;
-  color: black;
-  text-align: center;
-  line-height: 30px;
+  margin: 0 10px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.8s;
+  color: transparent;
+  transform: rotate(-60deg);
+  text-align: right;
 }
-.stage .mask .chart span i.left {
-  content: "1000";
+.stage .card .content ul.chart li span {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to left, #d4d4d4, lightblue);
-  transform-origin: left bottom;
-  transition: all 1s;
-  color: transparent;
-  text-align: right;
-  width: 0;
-  transform: rotateY(-90deg);
-  padding-right: 20px;
+  transform: translateZ(0);
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: inherit;
 }
-.stage .mask .chart span i.front {
-  content: "1000";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to left, #d4d4d4, lightblue);
-  transform-origin: left bottom;
-  transition: all 1s;
-  color: transparent;
-  text-align: right;
-  width: 0;
-  transform: rotateY(-90deg) rotateX(90deg);
-}
-.stage:after {
+.stage .card .content ul.chart li::before {
   content: "";
   display: block;
   position: absolute;
@@ -132,25 +139,89 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background: #414141;
-  transform: translateZ(-20px);
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
+  transition: inherit;
+  content: "20000";
+  width: 0;
+  background: linear-gradient(to right, #949494, white);
+  left: auto;
+  right: 0;
+  border-radius: 0;
+  transform-origin: right bottom;
+  transform: rotateY(-90deg) translateZ(20px);
+  padding-right: 20px;
 }
-.stage.active {
-  transform: rotateX(60deg);
+.stage .card .content ul.chart li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: inherit;
+  width: 0;
+  background: linear-gradient(to right, #949494, white);
+  left: auto;
+  right: 0;
+  border-radius: 0;
+  transform-origin: right bottom;
+  transform: rotateY(-90deg) rotateX(-90deg);
 }
-.stage.active .mask h3 {
-  transform: translateZ(20px);
+.stage .card .content p {
+  font-size: 36px;
+  line-height: 3em;
+  transform: translateZ(10px);
 }
-.stage.active .mask p {
-  transform: translateZ(20px);
+.stage.active .card {
+  transform: translateZ(200px) rotateX(60deg);
 }
-.stage.active .mask .chart span i.top {
-  transform: translateZ(100px);
+.stage.active .card::before {
+  background: rgba(16, 47, 68, 0.466);
 }
-.stage.active .mask .chart span i.left,
-.stage.active .mask .chart span i.front {
-  width: 100px;
+.stage.active .card .content h1,
+.stage.active .card .content h3 {
+  opacity: 0;
+}
+.stage.active .card .content ul.chart li {
   color: black;
+}
+.stage.active .card .content ul.chart li span {
+  color: black;
+}
+.stage.active .card .content ul.chart li:nth-of-type(1) {
+  transform: rotate(-60deg) translateZ(100px);
+}
+.stage.active .card .content ul.chart li:nth-of-type(1)::before,
+.stage.active .card .content ul.chart li:nth-of-type(1)::after {
+  width: 100px;
+}
+.stage.active .card .content ul.chart li:nth-of-type(2) {
+  transform: rotate(-60deg) translateZ(150px);
+}
+.stage.active .card .content ul.chart li:nth-of-type(2)::before,
+.stage.active .card .content ul.chart li:nth-of-type(2)::after {
+  width: 150px;
+}
+.stage.active .card .content ul.chart li:nth-of-type(3) {
+  transform: rotate(-60deg) translateZ(80px);
+}
+.stage.active .card .content ul.chart li:nth-of-type(3)::before,
+.stage.active .card .content ul.chart li:nth-of-type(3)::after {
+  width: 80px;
+}
+.stage.active .card .content ul.chart li:nth-of-type(4) {
+  transform: rotate(-60deg) translateZ(130px);
+}
+.stage.active .card .content ul.chart li:nth-of-type(4)::before,
+.stage.active .card .content ul.chart li:nth-of-type(4)::after {
+  width: 130px;
+}
+.stage.active .card .content ul.chart li:nth-of-type(5) {
+  transform: rotate(-45deg) translateZ(90px);
+}
+.stage.active .card .content ul.chart li:nth-of-type(5)::before,
+.stage.active .card .content ul.chart li:nth-of-type(5)::after {
+  width: 90px;
 }
 /*# sourceMappingURL=./style.css.map */

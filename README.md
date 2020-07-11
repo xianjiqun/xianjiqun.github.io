@@ -7,9 +7,9 @@
 
 [css3动画](https://xianjiqun.github.io/02/move "css3动画")
 
-[css3动画](https://xianjiqun.github.io/02/dynamic "css3动画")
+[动画](https://xianjiqun.github.io/02/dynamic "css3动画")
 
-[css3动画](https://xianjiqun.github.io/02/3d "css3动画")
+[css3动画](https://xianjiqun.github.io/02/3d "3d")
 
 
 
