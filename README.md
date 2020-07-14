@@ -11,6 +11,8 @@
 
 [3d柱状图](https://xianjiqun.github.io/02/3d "框")
 
+[音乐播放器](https://xianjiqun.github.io/03/player "音乐")
+
 
 
 
