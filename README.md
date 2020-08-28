@@ -14,7 +14,7 @@
 [音乐播放器](https://xianjiqun.github.io/03/player "音乐")
 
 
-[vue咖啡商城](https://xianjiqun.github.io/04/dist/625e80dad5f9b71fbae83f67a16374c4 "咖啡商城")
+[vue咖啡商城](https://xianjiqun.github.io/04/625e80dad5f9b71fbae83f67a16374c4 "咖啡商城")
 
 
 
