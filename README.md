@@ -18,7 +18,7 @@
 [my-logo.png]:https://xianjiqun.github.io/04/dist/img/01.png "my-logo"
 ![my-logo.png]
 
-> vue咖啡项目
+> vue咖啡购物商城项目
 
 
 
